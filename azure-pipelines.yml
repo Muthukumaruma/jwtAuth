@@ -19,5 +19,14 @@ steps:
     npm install
     # npm start
     # npm run build
-  displayName: 'npm install and start'
+  displayName: 'npm install'
+
+- script: |
+      npm start &
+      sleep 10  # wait for app to start
+      curl http://localhost:3000 # basic test
+  displayName: 'Start and Test App'
+  
+variables:
+  - group: TestDev
 
